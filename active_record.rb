@@ -7,6 +7,11 @@ ActiveRecord::Base.establish_connection(
   database: "db/students.sqlite"
 )
 
+# sql = <<-SQL
+# DROP TABLE IF EXISTS students
+# SQL
+# ActiveRecord::Base.connection.execute(sql)
+
 # Create a Students table
 sql = <<-SQL
   CREATE TABLE IF NOT EXISTS students (
@@ -15,6 +20,8 @@ sql = <<-SQL
   )
 SQL
 ActiveRecord::Base.connection.execute(sql)
+
+
 
 # Log SQL output to the terminal
 ActiveRecord::Base.logger = Logger.new(STDOUT)
